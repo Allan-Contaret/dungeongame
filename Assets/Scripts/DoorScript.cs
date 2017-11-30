@@ -10,7 +10,7 @@ public class DoorScript : MonoBehaviour {
 
 	//public Color StColor, EndColor, CurrentColor;
 
-	//[Range(0,1)]
+	
 	private float timer = 0;
 
 
