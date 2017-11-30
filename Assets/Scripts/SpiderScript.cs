@@ -7,6 +7,7 @@ public class SpiderScript : LifeScript
 {
 	private NavMeshAgent agent;
 	public Transform Destination;
+	public LifeBarScript life;
 
 	private void Update ()
 	{
@@ -18,6 +19,8 @@ public class SpiderScript : LifeScript
 	private void Start(){
 
 		agent = GetComponent<NavMeshAgent> ();
+
+		life.PvMax = Pv;
 
 	}
 
@@ -31,5 +34,6 @@ public class SpiderScript : LifeScript
 			GetComponent<NavMeshAgent>().enabled = false;
 			Destroy (this);
 		}
+		life.Damage (d);
 	}
 }

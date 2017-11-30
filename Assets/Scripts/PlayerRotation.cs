@@ -18,7 +18,7 @@ public class PlayerRotation : MonoBehaviour {
 		float x = Input.GetAxis ("Mouse Y");
 		float y = Input.GetAxis ("Mouse X");
 
-		Debug.Log (x + " " + y);
+
 
 
 		transform.eulerAngles += new Vector3 (0, y, 0) * SpeedRotation;
