@@ -30,9 +30,9 @@ public class SpiderScript : LifeScript
 		GetComponent<Animator>().SetInteger ("pv", Pv);
 		if (Pv <= 0) {
 
-			GetComponent<BoxCollider>().enabled = false;
 			GetComponent<NavMeshAgent>().enabled = false;
 			Destroy (this);
+			gameObject.tag = "Untagged";
 		}
 		life.Damage (d);
 	}

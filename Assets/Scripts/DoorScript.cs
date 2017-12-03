@@ -2,32 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorScript : MonoBehaviour {
+public class DoorScript : MonoBehaviour
+{
 
 	public bool IsOpen = false;
-	public Vector3 StartPosition;
-	public Vector3 EndPosition;
+	private Vector3 StartPosition;
+	private Vector3 EndPosition;
 
 	//public Color StColor, EndColor, CurrentColor;
 
 	
 	private float timer = 0;
 
-
-
-	private void OnTriggerEnter(Collider other)
+	void Start ()
 	{
-		if (other.tag == "Player")
-		{
+		StartPosition = transform.localPosition;
+		EndPosition = StartPosition + new Vector3 (0, 40f, 0);
+
+	}
+
+
+
+
+	private void OnTriggerEnter (Collider other)
+	{
+		if (other.tag == "Player") {
 			IsOpen = true;
 			timer = 0;
 		}
 	}
 
-	private void OnTriggerExit(Collider other)
+	private void OnTriggerExit (Collider other)
 	{
-		if (other.tag == "Player")
-		{
+		if (other.tag == "Player") {
 			IsOpen = false;
 			timer = 1;
 		}
@@ -35,13 +42,14 @@ public class DoorScript : MonoBehaviour {
 		
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		
 		if (IsOpen)
 			timer += Time.deltaTime;
 		else
 			timer -= Time.deltaTime;
 	
-		transform.localPosition = Vector3.Lerp(StartPosition, EndPosition, timer);
+		transform.localPosition = Vector3.Lerp (StartPosition, EndPosition, timer);
 	}
 }
