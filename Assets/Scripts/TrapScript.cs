@@ -8,11 +8,15 @@ public class TrapScript : MonoBehaviour
     public bool IsOpen = false;
     public Vector3 StartPosition;
     public Vector3 EndPosition;
-
-    //public Color StColor, EndColor, CurrentColor;
-
-
     private float timer = 0;
+
+    private void Start()
+    {
+
+        StartPosition = transform.localPosition;
+        EndPosition = StartPosition + new Vector3(0, 0, 40f);
+
+    }
 
 
 
